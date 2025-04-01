@@ -113,6 +113,8 @@ void printList(struct Node *Node) {
 /* Driver program to test above function */
 int main(void) {
 
+    vector<int>x={1,2};
+    reverse(x.be)
     int t;
     cin >> t;
     cin.ignore();
