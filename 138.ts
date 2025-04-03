@@ -9,7 +9,8 @@ public:
     Node(int _val) {
         val = _val;
         next = NULL;
-        random = NULL;
+        random = NULL
+        
     }
 };
 */
