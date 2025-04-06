@@ -17,6 +17,6 @@ function checkBST(root: TreeNode | null,ub: number, lb:number): boolean {
     return checkBST(root.left,root.val,lb) && checkBST(root.right,ub,root.val);
 }
 
-function isValidBST(root: TreeNode | null): boolean {
+function isValidCheck(root: TreeNode | null): boolean {
     return checkBST(root,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER);
 };
