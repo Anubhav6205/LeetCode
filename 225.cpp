@@ -1,34 +1,46 @@
-// Follow-up : Using 1 queue
 class MyStack {
     public:
-        queue<int> que;
+        queue<int> q1, q2;
+        MyStack() {}
     
-        MyStack() {
-            
-        }
-        
         void push(int x) {
-            que.push(x);
-            int n = que.size(); 
-    
-            for(int i=0; i<n-1; i++){
-                que.push(que.front());
-                que.pop();
+            while (!q1.empty()) {
+                int front = q1.front();
+                q1.pop();
+                q2.push(front);
+            }
+            q1.push(x);
+            while (!q2.empty()) {
+                int front = q2.front();
+                q2.pop();
+                q1.push(front);
             }
         }
-        
-        int pop() {
-            int result = que.front();
-            que.pop();
     
-            return result;
+        int pop() {
+            if (!empty()) {
+                int front = q1.front();
+                q1.pop();
+                return front;
+            }
+            return 0;
         }
-        
+    
         int top() {
-            return que.front();
+            if (!empty())
+                return q1.front();
+    
+            return 0;
         }
-        
-        bool empty() {
-            return que.empty();
-        }
+    
+        bool empty() { return q1.empty(); }
     };
+    
+    /**
+     * Your MyStack object will be instantiated and called as such:
+     * MyStack* obj = new MyStack();
+     * obj->push(x);
+     * int param_2 = obj->pop();
+     * int param_3 = obj->top();
+     * bool param_4 = obj->empty();
+     */
