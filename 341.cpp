@@ -8,7 +8,7 @@ class NestedIterator {
 		int next() {
 			hasNext();
 			
-			
+			5
 			return (begins.top()++)->getInteger();
 		}
 	
